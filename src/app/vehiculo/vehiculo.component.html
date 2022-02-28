@@ -1,0 +1,72 @@
+<h2>
+    VEHICULO
+</h2>
+
+
+<table mat-table [dataSource]="vehiculoA" class="mat-elevation-z8" style="width:
+    100%;">
+    <ng-container matColumnDef="idVehiculo">
+        <th mat-header-cell *matHeaderCellDef>N°</th>
+        <td mat-cell *matCellDef="let vehiculo"> {{vehiculo.idVehiculo}} </td>
+    </ng-container>
+    <ng-container matColumnDef="placa">
+        <th mat-header-cell *matHeaderCellDef>Placa</th>
+        <td mat-cell *matCellDef="let vehiculo"> {{vehiculo.placa}} </td>
+    </ng-container>
+    <ng-container matColumnDef="idColor">
+        <th mat-header-cell *matHeaderCellDef>Color</th>
+        <td mat-cell *matCellDef="let vehiculo"> {{vehiculo.color}} </td>
+    </ng-container>
+    <ng-container matColumnDef="idMarca">
+        <th mat-header-cell *matHeaderCellDef>Marca</th>
+        <td mat-cell *matCellDef="let vehiculo"> {{vehiculo.marca}} </td>
+    </ng-container>
+    <ng-container matColumnDef="idTipoVehiculo">
+        <th mat-header-cell *matHeaderCellDef>Tipo Vehiculo</th>
+        <td mat-cell *matCellDef="let vehiculo"> {{vehiculo.tipoVehiculo}} </td>
+    </ng-container>
+    <ng-container matColumnDef="idConductor">
+        <th mat-header-cell *matHeaderCellDef>Conductor</th>
+        <td mat-cell *matCellDef="let vehiculo">
+            {{vehiculo.primerNombreConductor}} {{vehiculo.segundoNombreConductor}} {{vehiculo.apellidoConductor}}
+        </td>
+    </ng-container>
+    <ng-container matColumnDef="idPropietario">
+        <th mat-header-cell *matHeaderCellDef>Propietario</th>
+        <td mat-cell *matCellDef="let vehiculo">
+            {{vehiculo.primerNombrePropietario}} {{vehiculo.segundoNombrePropietario}} {{vehiculo.apellidoPropietario}}
+        </td>
+    </ng-container>
+    <ng-container matColumnDef="editar">
+        <th mat-header-cell *matHeaderCellDef>Editar</th>
+        <td mat-cell *matCellDef="let vehiculo">
+            <a mat-icon-button [routerLink]="['editar', vehiculo.idVehiculo]">
+                <mat-icon color="primary">edit</mat-icon>
+            </a>
+        </td>
+    </ng-container>
+    <ng-container matColumnDef="eliminar">
+        <th mat-header-cell *matHeaderCellDef>Eliminar</th>
+        <td mat-cell *matCellDef="let vehiculo">
+            <button mat-icon-button>
+         
+                <mat-icon color="warn"(click)="eliminarVehiculo(vehiculo)" >delete</mat-icon>
+            </button>
+        </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="['idVehiculo', 'placa', 'idColor', 'idMarca', 'idTipoVehiculo', 'idConductor', 'idPropietario',
+    'editar', 'eliminar']"></tr>
+    <tr mat-row *matRowDef="let fila; columns: ['idVehiculo', 'placa', 'idColor', 'idMarca', 'idTipoVehiculo', 'idConductor', 'idPropietario',
+        'editar', 'eliminar'];"></tr>
+</table>
+<br>
+<p>
+    <a mat-list-item routerLink="agregar">
+        <button mat-raised-button color="primary">Agregar Vehiculo
+            <mat-icon color="accent">add_circle</mat-icon>
+        </button>
+
+
+    </a>
+</p>

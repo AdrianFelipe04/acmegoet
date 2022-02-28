@@ -1,0 +1,39 @@
+<h2>
+    <mat-icon color="primary">group</mat-icon>
+    EDITAR PERSONA
+    <mat-icon color="primary">group</mat-icon>
+</h2>
+<form (ngSubmit)="onSubmit()" #formTipoPersona="ngForm">
+    <p>
+        <select name="selectTipoPersona" [(ngModel)]="opcionSeleccionado" (change)="capturar()">
+            <option value="0">--</option>
+        <option  [value]="item.idTipoPersona" *ngFor="let item of tipoPersonaA">{{item.tipoPersona}}</option>
+        </select>
+    </p>
+    <p>
+        <input matInput name="primerNombre" [(ngModel)]="persona.primerNombre" type="any" placeholder="Primer Nombre">
+    </p>
+    <p>
+        <input matInput name="segundoNombre" [(ngModel)]="persona.segundoNombre" type="any" placeholder="Segundo Nombre">
+    </p>
+    <p>
+        <input matInput name="apellido" [(ngModel)]="persona.apellido" type="any" placeholder="Apellido">
+    </p>
+    <p>
+        <input matInput name="numeroCedula" [(ngModel)]="persona.numeroCedula" type="any" placeholder="N° Cedula">
+    </p>
+    <p>
+        <input matInput name="direccion" [(ngModel)]="persona.direccion" type="any" placeholder="Direccion">
+    </p>
+    <p>
+        <input matInput name="telefono" [(ngModel)]="persona.telefono" type="any" placeholder="Telefono">
+    </p>
+    <p>
+        <input matInput name="ciudad" [(ngModel)]="persona.ciudad" type="any" placeholder="Ciudad">
+    </p>
+
+    <p>
+        <button type="submit" mat-flat-button color="accent">Guardar</button> &nbsp;
+        <button (click)="volver()" type="button" mat-flat-button color="primary">Volver</button>
+    </p>
+</form>

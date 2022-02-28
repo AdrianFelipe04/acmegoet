@@ -1,0 +1,45 @@
+<h2>
+    <mat-icon color="primary">group</mat-icon>
+    AGREGAR PERSONA
+    <mat-icon color="primary">group</mat-icon>
+</h2>
+<form (ngSubmit)="onSubmit()" #formColor="ngForm">
+    <!-- <p>
+        <input matInput name="idTipoPersona" [(ngModel)]="personamodel.idTipoPersona" type="text" placeholder="TipoPersona">
+    </p> -->
+
+    <p>
+        <select name="selectTipoPersona" [(ngModel)]="opcionSeleccionado" (change)="capturar()">
+            <option value="0">--</option>
+        <option  [value]="item.idTipoPersona" *ngFor="let item of tipoPersonaA">{{item.tipoPersona}}</option>
+        </select>
+    </p>
+
+    <p>
+        <input matInput name="primerNombre" [(ngModel)]="personamodel.primerNombre" type="text" placeholder="Primer Nombre">
+    </p>
+    <p>
+        <input matInput name="segundoNombre" [(ngModel)]="personamodel.segundoNombre" type="text" placeholder="Segundo Nombre">
+    </p>
+    <p>
+        <input matInput name="apellido" [(ngModel)]="personamodel.apellido" type="text" placeholder="Apellido">
+    </p>
+    <p>
+        <input matInput name="numeroCedula" [(ngModel)]="personamodel.numeroCedula" type="any" placeholder="N° Cedula">
+    </p>
+    <p>
+        <input matInput name="direccion" [(ngModel)]="personamodel.direccion" type="any" placeholder="Direccion">
+    </p>
+    <p>
+        <input matInput name="telefono" [(ngModel)]="personamodel.telefono" type="any" placeholder="Telefono">
+    </p>
+    <p>
+        <input matInput name="ciudad" [(ngModel)]="personamodel.ciudad" type="text" placeholder="Ciudad">
+    </p>
+    <p>
+        <button type="submit" mat-flat-button color="primary">Guardar</button>&nbsp;
+        <button (click)="volver()" type="button" mat-flat-button color="warn">Volver</button>
+    </p>
+
+
+</form>
